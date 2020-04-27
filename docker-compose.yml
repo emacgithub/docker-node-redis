@@ -1,9 +1,9 @@
-version: "3"
-services:
-  redis-server:
-    image: "redis"
+version: "3" # Use version 3 of docker compose
+services: # services is sort of like docker containers.  We have two services `redis-server and `node-app`
+  redis-server: # name we give redis server service
+    image: "redis"  # We will use the default redis image from dockerhub
   node-app:
     restart: on-failure
-    build: .
+    build: . # build this service using the dockerFile in the same directory that this yml file is located
     ports:
-      - "4001:8081"
+      - "4001:8081" # Map port 4001 from our local machine to port 8081 inside the container
